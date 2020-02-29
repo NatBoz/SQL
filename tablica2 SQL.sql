@@ -14,7 +14,7 @@ isbn VARCHAR(128),
 category VARCHAR(128),
 page_count TINYINT(128),
 publisher VARCHAR(128),
-price DECIMAL
+price FLOAT
 );
 ALTER TABLE book ADD COLUMN new_column TINYINT;
 ALTER TABLE book MODIFY COLUMN new_column TINYINT NOT NULL;
@@ -38,9 +38,12 @@ page_count INT(128),
 publisher VARCHAR(128),
 price FLOAT
 );
+ALTER TABLE book MODIFY COLUMN page_count  INT;
+ALTER TABLE book MODIFY COLUMN price  FLOAT;
 ALTER TABLE book1 ADD COLUMN new_column TINYINT;
 ALTER TABLE book1 MODIFY COLUMN page_count  INT;
 ALTER TABLE book1 DROP COLUMN new_column;
+ALTER TABLE book DROP COLUMN new_column;
 DESC book1;
 SHOW DATABASES;
 SHOW TABLES;
