@@ -128,7 +128,7 @@ SELECT * FROM book1 WHERE EXISTS (SELECT * FROM book1 WHERE price < 100);
 
 
 
-
+#1
 INSERT INTO book(title, author, published, isbn, category, page_count, publisher, price) 
 VALUES ('Ferdydurke', 'Gombrowicz Witold', '1997-02-11', '348-83-342-0849-7', 'Powieść', 432, 'PWN', 23.10);
 INSERT INTO book(title, author, published, isbn, category, page_count, publisher, price) 
@@ -149,3 +149,31 @@ INSERT INTO book(title, author, published, isbn, category, page_count, publisher
 VALUES ('Władca Pierścieni Drużyna Pierscienia T.1', 'Tolkien J. R. R.', '2002-07-01', '900-83-333-0040-7', 'Powieść fantastyczn', 780, 'MUZA S.A.', 41.00);
 
 SELECT * FROM book;
+
+#2
+SELECT * FROM book WHERE category LIKE 'klasyka polska';
+
+#3
+SELECT * FROM book WHERE price BETWEEN 10 AND 30;
+
+#4
+SELECT MIN(page_count) FROM book;
+SELECT MAX(page_count) FROM book;
+
+#5
+SELECT * FROM book WHERE page_count = (SELECT MAX(page_count) FROM book);
+
+#6
+
+
+#7
+
+
+#8
+SELECT publisher, SUM(page_count) FROM book GROUP BY publisher LIKE 'PWN';
+
+#9
+SELECT * FROM book WHERE EXISTS (SELECT * FROM book WHERE price > 10.01);
+
+
+
