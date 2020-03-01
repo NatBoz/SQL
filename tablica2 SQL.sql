@@ -154,7 +154,7 @@ SELECT * FROM book;
 SELECT * FROM book WHERE category LIKE 'klasyka polska';
 
 #3
-SELECT * FROM book WHERE price BETWEEN 10 AND 30;
+SELECT count(*) FROM book WHERE price BETWEEN 10 AND 30;
 
 #4
 SELECT MIN(page_count) FROM book;
@@ -164,16 +164,38 @@ SELECT MAX(page_count) FROM book;
 SELECT * FROM book WHERE page_count = (SELECT MAX(page_count) FROM book);
 
 #6
-
-
+SELECT * FROM book WHERE published < '2020-01-01';
 #7
-
-
+SELECT count(*),publisher FROM book WHERE published > '2020-01-01' GROUP BY publisher;
 #8
-SELECT publisher, SUM(page_count) FROM book GROUP BY publisher LIKE 'PWN';
 
 #9
-SELECT * FROM book WHERE EXISTS (SELECT * FROM book WHERE price > 10.01);
+
+#10
+SELECT title FROM book WHERE category <> 'Lektury' AND price > 20.00 ORDER BY title DESC;
+
+#11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
